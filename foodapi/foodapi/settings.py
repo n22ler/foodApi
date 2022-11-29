@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from config import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r_hk^=r0im_y@e%38&9d@kh8!i0v8x*ty=tygx_cyq-)h(p*$k'
+SECRET_KEY = DJ_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,9 +86,9 @@ DATABASES = {
     # },
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'foodapi',
+        'NAME': DB_NAME,
         'USER' : 'postgres',
-        'PASSWORD' : '6Yr!baH(9nDt',
+        'PASSWORD' : DB_PASS,
         'HOST' : 'localhost',
         'PORT' : '5432',
     }
@@ -129,6 +130,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+#smtp
+EMAIL_USE_TLS = True
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST_USER = E_MAIL
+EMAIL_HOST_PASSWORD = E_PASSWORD
+EMAIL_PORT = 587
+
+DJOSER= {
+    'ACTIVATION_URL' : '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL':True
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -140,7 +152,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = ["127.0.0.1",'localhost','192.168.0.112']
 
 CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:8000', 'http://localhost:8000','http://192.168.0.112:8000'
+    'http://127.0.0.1', 'http://localhost','http://192.168.0.112'
 ]
 REST_FRAMEWORK = {
      'DEFAULT_AUTHENTICATION_CLASSES': [
