@@ -130,17 +130,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-#smtp
-EMAIL_USE_TLS = True
-EMAIL_HOST= 'smtp.gmail.com'
-EMAIL_HOST_USER = E_MAIL
-EMAIL_HOST_PASSWORD = E_PASSWORD
-EMAIL_PORT = 587
+# #smtp
+# EMAIL_USE_TLS = True
+# EMAIL_HOST= 'smtp.gmail.com'
+# EMAIL_HOST_USER = E_MAIL
+# EMAIL_HOST_PASSWORD = E_PASSWORD
+# EMAIL_PORT = 587
 
-DJOSER= {
-    'ACTIVATION_URL' : '#/activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL':True
-}
+# DJOSER= {
+#     'ACTIVATION_URL' : '#/activate/{uid}/{token}',
+#     'SEND_ACTIVATION_EMAIL':True
+# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -161,6 +161,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ]
 }

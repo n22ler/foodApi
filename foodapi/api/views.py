@@ -22,3 +22,13 @@ class ProdApiView(generics.ListCreateAPIView):
     queryset = food_product.objects.all()
     serializer_class = ProdSer
     permission_classes= (IsAuthenticated,)
+
+class UserApiView(generics.ListCreateAPIView):
+    queryset = users.objects.all()
+    serializer_class= UserSer
+    def get_queryset(self):
+        return users.objects.filter(id = self.kwargs['id'])
+
+class UpdateUserData(generics.UpdateAPIView):
+    queryset = users.objects.all()
+    serializer_class = UpdateUserDataSer

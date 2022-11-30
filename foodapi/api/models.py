@@ -36,4 +36,15 @@ class food_product(models.Model):
         return self.rus_name
 
 
-
+class users(models.Model):
+    id  = models.IntegerField(null=False, primary_key=True)
+    nickname = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255, default="Аноним")
+    email = models.CharField(max_length=255)
+    age = models.IntegerField(default=0)
+    weight = models.IntegerField(default=0)
+    growth = models.IntegerField(default=0)
+    sex = models.IntegerField(default=2)
+    base_metabolism = models.IntegerField(default=0)
+    def __str__(self):
+        return self.id

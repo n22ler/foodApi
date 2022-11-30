@@ -23,6 +23,8 @@ urlpatterns = [
     path('api/category/', CatApiView.as_view()),
     path('api/subtype/', SubApiView.as_view()),
     path('api/products/', ProdApiView.as_view()),
+    path('api/user/<slug:id>/', UserApiView.as_view()),
+    path('api/user/update/<slug:pk>/', UpdateUserData.as_view()),
     path('api/auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
